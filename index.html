@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HTML Forms</title>
+        <style>
+            body{
+                display: flex;
+                margin:10px;
+                padding:10px;
+                border:blue;
+                border-style: solid;
+                border-width:10px;
+                
+            }
+            #sidebar , #main{
+                width: 50vw;
+                border:rgb(237, 74, 175);
+                border-style: solid;
+                border-width:7px;
+                padding:15px;
+                margin:10px;
+                border-radius:10px;
+
+            }
+            .f{
+                background-color: aliceblue;
+            }
+            form {
+            margin-bottom: 20px;
+        }
+            fieldset {
+                border: 2px solid #ddd;
+                border-radius: 8px;
+                padding: 10px;
+                margin-bottom: 20px;
+            }
+            legend {
+                font-weight: bold;
+            }
+            input[type="text"],
+            input[type="number"],
+            
+            input[type="date"],
+            input[type="datetime-local"],
+            input[type="email"],
+            input[type="file"],
+            
+            input[type="month"],
+            input[type="password"],
+            input[type="range"],
+            input[type="search"],
+            input[type="tel"],
+            input[type="time"],
+            input[type="url"],
+            select,
+            textarea {
+                margin-bottom: 10px;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            input[type="checkbox"],
+            input[type="radio"] {
+                margin-right: 5px;
+            }
+            input[type="submit"],
+            input[type="reset"],
+            input[type="button"] {
+                padding: 10px 20px;
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            input[type="submit"]:hover,
+            input[type="reset"]:hover,
+            input[type="button"]:hover {
+                background-color: #0056b3;
+            }
+
+            @media (max-width: 600px) {
+                body {
+                    padding: 10px; /* Reduce padding on small screens */
+                }
+
+                #sidebar {
+                    max-width: none; /* Remove maximum width */
+                    border-right: none; /* Remove right border */
+                    margin-bottom: 0; /* Remove margin between sidebar and main content */
+                }
+            }
+
+
+
+        </style>
+    </head>
+    <script>
+        function checkAge(){
+            let age= document.getElementById('Age').value;
+            let checkAge=document.getElementById("checkAge");
+            checkAge.textContent="Hi! Your Age is" + age + " years";
+
+        }
+        function previewBtn(){
+            let name=document.getElementById("name").value;
+            let previewEl=document.getElementById('Preview');
+            let age=document.getElementById("Age").value;
+            let preview="<b>Name: </b>"+name+"<br>";
+            preview+="<b>Age: </b>"+age+"<br>";
+            let dCar=document.getElementById("dCar");
+            let dBike=document.getElementById("dBike");
+            let dCycle=document.getElementById("dCycle");
+            if  (dCar.checked){
+                preview+="<b>Driving: </b>"+dCar.value+"<br>";
+            }
+            if  (dBike.checked){
+                preview+="<b>Driving: </b>"+dBike.value+"<br>";
+            }
+            if  (dCycle.checked){
+                preview+="<b>Driving: </b>"+dCycle.value+"<br>";
+            }
+            let FavColor=document.getElementById("FavColor").value;
+            preview+="<b>Favorite Color: </b>"+FavColor+'<br>';
+            let bday=document.getElementById('bday').value;
+            preview+='<b>Birthday:</b> '+bday+'<br>';
+            let ptime=document.getElementById('ptime').value;
+            preview+='<b>Present Time: </b>'+ptime+'<br>';
+            let email=document.getElementById("email").value;
+            preview+="<b>Email: </b>"+email+"<br>";
+            let mfile=document.getElementById("mfile").value;
+            if(mfile){
+                preview+=mfile+"is chosen"+"<br>";
+            }else{
+                preview+="no file is chosen"+ "<br>";
+            }
+            let ifile=document.getElementById("ifile").value;
+            if(ifile){
+                preview+=mfile+"is chosen"+"<br>";
+            }else{
+                preview+="no file is chosen"+ "<br>";
+            }
+            let sfile=document.getElementById("sfile").value;
+            if(sfile){
+                preview+=mfile+"is chosen"+"<br>";
+            }else{
+                preview+="no file is chosen"+ "<br>";
+            }
+            
+            preview+="Submit Form through image by click on it. Make sure u have entered all required files <br>";
+            let pass=document.getElementById('pass').value;
+            preview+="<b> Passed out Date: </b>"+pass+"<br>";
+            let password=document.getElementById("password").value;
+            if(password==""){
+                alert("Enter password");
+            }else{
+                preview+="<b>You have entered password</b> "+password+"<br>";
+            }
+            let cTelugu=document.getElementById("cTelugu");
+            let cEnglish=document.getElementById("cEnglish");
+            let cHindi=document.getElementById("cHindi");
+            if (cTelugu.checked){
+                preview+="<b>Favorite language is: </b>"+cTelugu.value+"<br>";
+            }
+            if (cEnglish.checked){
+                preview+="<b>Favorite language is: </b>"+cEnglish.value+"<br>";
+            }
+            if (cHindi.checked){
+                preview+="<b>Favorite language is: </b>"+cHindi.value+"<br>";
+            }
+            let rate=document.getElementById("rate").value;
+            preview+="<b>You have rated ur self with : </b>" +rate+"<br>";
+            let search=document.getElementById("search").value;
+            preview+="<b>Search Engine Used: </b>"+search+"<br>";
+            let tel=document.getElementById("tel").value;
+            preview+="<b>Phone Number: </b>"+tel+"<br>";
+            let stime=document.getElementById("stime").value;
+            preview+="<b>Submission Time: </b>"+stime+"<br>";
+            let url=document.getElementById("url").value;
+            preview+="<b>URL is: </b>"+url+"<br>";
+            let addr=document.getElementById("addr").value;
+            preview+="<b>Address: </b>"+addr+"<br>";
+            let tech=document.getElementById("tech").value;
+            preview+="<b>Technology used for this submission are: </b>"+tech+"<br>";
+            previewEl.innerHTML=preview;
+
+        }
+    </script>
+    <body>
+        <div id="sidebar" class="f">
+            <h1>Form Page</h1>
+            <form id="myForm" action="/action_page.php">
+                <fieldset>
+                    <legend>Person Information</legend><br>
+                        Name: <input id="name" type="text" name="fname" value="Bhavya Srinivas"  maxlength="25"><br><br>
+                        Age: <input type="number" name="quantity" id="Age" placeholder="Enter your age" max="100"><br><br>
+                        Check Age: <input type="button" onclick="checkAge()" value="Check">
+                        <p id="checkAge"></p>
+                </fieldset>
+                <br><br> Driving: <br><input type="checkbox" id="dCar" name="Driving" value="Car">Car
+                <br><input type="checkbox" id="dBike" name="Driving" value="Bike">Bike<br>
+                <input type="checkbox" id="dCycle" name="Driving" value="Cycle">Cycle<br><hr>
+                <h1>Choose your Favorite Color</h1>
+                FavColor: <input type="color" name="FavColor" id="FavColor" value="#fff000"><br><hr>
+                Birthday: <input type="date" id="bday" name="Birthday"><br><hr>
+                Present_Time: <input id="ptime" type="datetime-local" name="Present_Time"> <br><br>
+                Email: <input type="email" id="email" name="Email" multiple>
+                <h1>Files upload</h1>
+                Multiple_Files: <input type="file" id="mfile" name="Multiple_Files" multiple><br>
+                Image_Files: <input type="file" id="ifile" name="Image_Files" allow=".jpg, .png, .jpeg"><br>
+                Single_File: <input type="file" id="sfile" name="Single_File"><br><hr>
+                <h5>Image Submission</h5>
+                <input type="image" id="image" src="https://images.pexels.com/photos/1659438/pexels-photo-1659438.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="picture" height="150px" width="150px"><br>
+                <h4>BTech Passout Approximate Date</h4>
+                Select Month & Year: <input id="pass" type="month"  name="MonthYear"><br><br>
+                Create password: <input id="password" type="password"  name="Password" ><br><br>
+                <h5> Favourite language:</h5> <input type="radio" id="cTelugu" name="language" value="Telugu" checked>Telugu<br>
+                <input type="radio" name="language" id="cEnglish" value="English">English<br>
+                <input type="radio" name="language" id="cHindi" value="Hindi">Hindi<br><br>
+                <h3>How much do u rate ur self b/w 0 & 5</h3>
+                Rate: <input type="range" id="rate" min="0" max="5" step="1" value="5"><br><br>
+                Search: <input type="search" id="search" name="search">
+                <h2>Contact Number</h2>
+                Enter ur contact number <input type="tel" id="tel" name="number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required Country-Code="+91" placeholder="944-090-6475"><br>
+                Submission Time: <input id="stime" type="time" name="time"><br><hr>
+                Favourite URL: <input type="url" id="url" name="url"><br><br>
+                Address: <textarea rows="6" id="addr" cols="20" name="Address" placeholder="type here.."></textarea><hr><br>
+                Technologies: <select name="Technologies" id="tech">
+                    <option value="ML">ML</option>
+                    <option value="AI" selected>AI</option>
+                    <option value="FullStack">FullStack</option>
+
+                </select><hr><br>
+                <input type="reset" value="reset">
+                <input type="submit" value="submit">
+                <input type="button" onclick="previewBtn()" value="Preview">
+
+
+            
+            </form>
+        </div>
+        <div id="main">
+            <h1>Preview Page</h1>
+            <div id="Preview">
+                
+            </div>
+        </div>
+    </body>
+</html>
